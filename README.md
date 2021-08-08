@@ -1,5 +1,5 @@
 # PersonalWebSite
-*این وب سایت هنوز بر روی سرور قرار نگرفته است*
+*این وب سایت هنوز بر روی هاست قرار نگرفته است*
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
