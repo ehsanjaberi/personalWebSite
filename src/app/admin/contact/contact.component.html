@@ -1,0 +1,26 @@
+<h4 class="border-bottom pb-2 mb-2">پیام های دریافتی</h4>
+<div class="">
+  <ul class="list-unstyled pe-0">
+    <li *ngFor="let msg of contacts let i = index" class="p-1 border-bottom">
+      <p class="d-flex justify-content-start mb-2">
+        <b> نام: </b><span>{{ msg.name }}</span>
+        <span class="me-auto">
+          <small>1394/7/5</small>
+          <a type="button" class="me-1" (click)="deleteMsg(msg)"><span class="fas fa-trash text-danger"></span></a>
+        </span>
+      </p>
+      <p class="mb-2">
+        <b>ایمیل: </b><span>{{  msg.email }}</span>
+      </p>
+      <p class="mb-2">
+        <b>موضوع: </b><span>{{  msg.subject }}</span>
+      </p>
+      <p class="mb-2">
+        <b>متن: </b><span>{{  msg.text }}</span>
+      </p>
+    </li>
+    <li *ngIf="tableLoading" class="text-center">
+      <div class="spinner-border spinner-border-sm"></div>
+    </li>
+  </ul>
+</div>

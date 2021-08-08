@@ -1,0 +1,51 @@
+<h4 class="border-bottom pb-2 mb-2">مهارت های من</h4>
+<form action="" class="border-bottom py-3 add-skillForm" [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="" class="col-form-label col-form-label-sm">نام</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" [class]="submitted && f.name.errors? 'is-invalid':''" formControlName="name">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="" class="col-form-label col-form-label-sm">درصد</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="number" class="form-control form-control-sm" [class]="submitted && f.percent.errors? 'is-invalid':''" formControlName="percent">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 text-start text-sm-center mt-2 mt-sm-0 d-flex align-items-center">
+      <button [disabled]="loading" class="btn btn-sm btn-primary d-flex align-items-center" [class]="isAddMode ? 'btn-primary':'btn-success'" type="submit">
+        {{ isAddMode? 'افزودن': 'ویرایش' }}
+        <div class="spinner-border spinner-border-sm me-1" *ngIf="loading"></div>
+      </button>
+      <button  type="reset" *ngIf="!isAddMode" class="btn btn-sm btn-danger me-1" (click)="cancelEditSkill()">انصراف</button>
+
+    </div>
+  </div>
+</form>
+<ul class="list-unstyled mt-4 skill-list">
+  <li *ngFor="let skill of skills; let i = index">
+    <span class="">{{ skill.name }}</span>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [style.width]="skill.percent+ '%'"
+        [attr.aria-valuenow]="skill.percent" aria-valuemin="0" aria-valuemax="100">{{ skill.percent }}%</div>
+        <!-- <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;"
+        aria-valuenow="{{ skill.percent }}" aria-valuemin="0" aria-valuemax="100">{{ skill.percent }}%</div> -->
+      <div class="action">
+        <a type="button" (click)="onDeleteSkill(skill)" class="text-dark ms-1"><span class="fas fa-trash"></span></a>
+        <a type="button" (click)="onEditSkill(skill)" class="text-dark ms-1"><span class="fas fa fa-edit"></span></a>
+      </div>
+    </div>
+  </li>
+  <li *ngIf="!skills" class="text-center">
+    <div class="spinner-border spinner-border-sm"></div>
+  </li>
+</ul>

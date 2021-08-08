@@ -1,0 +1,9 @@
+<div class="parent-alert">
+  <div *ngFor="let alert of alerts;let i= index"  class="{{cssClass(alert)}}">
+    <a class="close ms-1" (click)="removeAlert(alert)">
+      <span class="fas fa-times text-dark"></span>
+      <!-- &times; -->
+    </a>
+    <span [innerHTML]="alert.message"></span>
+  </div>
+</div>

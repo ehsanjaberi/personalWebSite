@@ -1,0 +1,55 @@
+@import 'custom'
+a
+  text-decoration: none
+.header
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  width: 300px
+  background: #040b14
+  transition: all 0.5s
+  z-index: 9997
+  &.toggled
+    right: 0
+  .profile
+    padding-top: 10px
+    text-align: center
+    img
+      margin: 15px auto
+      width: 120px
+      border: 8px solid #2c2f3f
+    h1
+      font-size: 24px
+      text-align-last: center
+      margin-bottom: 7px
+      a
+        color: #fff
+  .toggled
+    right: 320px
+  .social-links
+    margin-top: 15px
+    a
+      @extend %social-link
+  .nav-menu
+    margin-top: 15px
+    ul
+      list-style: none
+      li
+
+        padding: 10px
+        a
+          color: #8a8a8a
+          transition: all 0.3s
+          i
+            margin-left: 9px
+            transition: all 0.3s
+          &:hover
+            color: #fff
+            i
+              color: #149ddd
+@media screen and ( max-width: 1024px)
+  .header
+    right: -300px
+
+

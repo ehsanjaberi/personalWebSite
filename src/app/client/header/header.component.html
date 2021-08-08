@@ -1,0 +1,36 @@
+<div class="header" [class]="class"id="navbarSupportedContent">
+
+  <!-- profile -->
+  <div class="profile">
+    <img [src]="imgUrl" alt="">
+    <h1><a href="#">احسان جابری</a></h1>
+    <div class="social-links">
+      <a href="https://t.me/E_Jaberi1997" class="telegram"><span class="fab fa-telegram"></span></a>
+      <a href="https://github.com/ehsanjaberi" class="github"><span class="fab fa-github"></span></a>
+      <a href="https://wa.me/qr/YA2KHMM6LN4AO1" class="whatsapp"><span class="fab fa-whatsapp"></span></a>
+    </div>
+  </div>
+  <!-- navigationMenu -->
+  <div class="nav-menu">
+    <ul>
+      <li>
+        <a href="#hero"><i class="fas fa-home"></i> <span>خانه</span></a>
+      </li>
+      <li>
+        <a href="#about"><i class="fas fa-home"></i> <span>درباره</span></a>
+      </li>
+      <li>
+        <a href="#educational"><i class="fas fa-house-user"></i> <span>سوابق تحصیلی</span></a>
+      </li>
+      <li>
+        <a href="#skills"><i class="fas fa-house-user"></i> <span>مهارت های من</span></a>
+      </li>
+      <li>
+        <a href="#contact"><i class="fas fa-phone"></i> <span>تماس با من</span></a>
+      </li>
+      <li>
+        <a [routerLink]="['/adminpanel']"><i class="fas fa-user"></i> <span>پنل مدیریت</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<h4 class="border-bottom pb-2 mb-2">درباره من</h4>
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col col-lg-12">
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">توضیحات</label>
+        <textarea cols="30" rows="5" class="form-control  form-control-sm" formControlName="description"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">تاریخ تولد</label>
+        <input type="text" class="form-control form-control-sm" formControlName="birthday">
+      </div>
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">وبسایت</label>
+        <input type="text" class="form-control form-control-sm" formControlName="website">
+      </div>
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">شماره همراه</label>
+        <input type="text" class="form-control form-control-sm" formControlName="phonenumber">
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">سن</label>
+        <input type="text" class="form-control form-control-sm" formControlName="age">
+      </div>
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">مدرک تحصیلی</label>
+        <input type="text" class="form-control form-control-sm" formControlName="eg">
+      </div>
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">ایمیل</label>
+        <input type="text" class="form-control form-control-sm" formControlName="email">
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="mb-3">
+        <label for="" class="col-form-label-sm">شهر</label>
+        <input type="text" class="form-control form-control-sm" formControlName="city">
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-end">
+      <div *ngIf="loading" class="spinner-border spinner-border-sm ms-1"></div>
+      <button [disabled]="loading" type="submit" class="btn btn-primary">ثبت</button>
+    </div>
+  </div>
+</form>
+<div class="row mt-3">
+  <div class="col-sm-12 col-md-8">
+    <div class="mb-3 border rounded-1 p-2">
+      <label for="" class="col-form-label-sm">تصویر</label>
+      <input type="file" class="file-input mb-4" #fileUpload (change)="onFileSelected($event)">
+      <div class="file-upload">
+        <button class="btn btn-outline-primary btn-sm" (click)="fileUpload.click()">انتخاب</button>
+        <span class="col-form-label-sm">
+          {{ filename || 'عکس مورد نظر را انتخاب کنید.' }}
+        </span>
+      </div>
+      <img [src]="filePath" alt="" class="d-flex m-auto shadow" width="120px">
+      <div class="mt-3">
+
+        <button [disabled]="loadingPic" class="btn btn-sm btn-primary w-100" (click)="uploadFile()">
+          <div class="spinner-border spinner-border-sm ms-1" *ngIf="loadingPic"></div>
+          <span>بارگزاری</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

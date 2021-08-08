@@ -1,0 +1,61 @@
+
+<div class="sidebar" [class]="class">
+  <span class="fas fa-bars header-toggle" [class]="class" (click)="sidebarToggle()"></span>
+  <!-- <span class="fas fa-bars header-toggle"></span> -->
+  <div class="profile-img">
+    <!-- <img src="assets/images/EhsanJaberi.jpg" alt=""> -->
+    <img [src]="profileImgUrl" alt="">
+  </div>
+  <ul>
+    <li>
+      <a [routerLink]="['users']">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>داشبورد</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['about']">
+        <i class="fas fa-address-card"></i>
+        <span>درباره من</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['educational']">
+        <i class="fas fa-user-graduate"></i>
+        <span>سوابق تحصیلی</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['skills']">
+        <i class="fas fa-laptop-code"></i>
+        <span>مهارت های من</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['contact']">
+        <i class="fas fa-envelope"></i>
+        <span>پیام های دریافتی</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['users']">
+        <i class="fas fa-user-alt"></i>
+        <span>اطلاعات کاربری</span>
+      </a>
+    </li>
+    <li>
+      <a type="button" (click)="signOut()">
+        <i class="fas fa-sign-out-alt text-danger"></i>
+        <span>خروج از حساب کاربری</span>
+      </a>
+    </li>
+  </ul>
+
+</div>
+
+<div class="main">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

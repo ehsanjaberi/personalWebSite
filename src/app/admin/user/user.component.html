@@ -1,0 +1,35 @@
+<h4 class="border-bottom pb-2 mb-3">اطلاعات کاربری</h4>
+<div class="row justify-content-center">
+  <div class="col-sm-10 col-lg-6">
+    <form action="" class="" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label col-form-label-sm">نام کاربری</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control form-control-sm" [class]="submitted && f.username.errors ? 'is-invalid' : ''" placeholder="نام کاربری جدید" formControlName="username">
+          <span class="form-text text-danger" *ngIf="submitted && f.username.errors">
+            نام کاربری الزامی است
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label col-form-label-sm">رمز عبور</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm" [class]="submitted && f.password.errors ? 'is-invalid':''" placeholder="رمز عبور جدید"  formControlName="password">
+            <span class="form-text text-danger" *ngIf="submitted && f.password.errors">
+              رمز عبور را وارد کنید
+            </span>
+          </div>
+      </div>
+
+      <div class="row mb-1">
+        <div class="col-sm-12 d-flex justify-content-end align-items-center">
+          <div *ngIf="loading" class="spinner-border spinner-border-sm ms-1"></div>
+          <button [disabled]="loading" type="submit" class="btn btn-sm btn-primary">ویرایش</button>
+        </div>
+      </div>
+    </form>
+    <small>*در صورت عدم تمایل به تغیر نام کاربری یا رمز عبور فیلد مربوطه را خالی بگذارید.</small>
+
+  </div>
+</div>

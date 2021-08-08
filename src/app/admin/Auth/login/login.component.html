@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-sm-10 col-lg-4 col-md-6">
+      <h2 class="text-center mb-4">صفحه ورود</h2>
+      <form action="" (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-light p-3 rounded-3 shadow">
+        <div class="mb-3">
+          <label for="" class="form-label">نام کاربری</label>
+          <input type="text" class="form-control" [class]="submitted && f.username.errors ? 'is-invalid':''" formControlName="username">
+          <div *ngIf="submitted && f.username.errors">
+            <small *ngIf="f.username.errors.required" class="text-danger">نام کاربری الزامی است</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">رمز عبور</label>
+          <input type="password" class="form-control" formControlName="password" [class]="submitted && f.password.errors ? 'is-invalid':''">
+          <div *ngIf="submitted && f.password.errors">
+            <small *ngIf="f.password.errors.required" class="text-danger">رمز عبور الزامی است</small>
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <div *ngIf="loading" class="spinner-border spinner-border-sm ms-2"></div>
+          <button [disabled]="loading" type="submit" class="btn btn-primary ">ورود</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

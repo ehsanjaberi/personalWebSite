@@ -1,0 +1,171 @@
+@import 'custom'
+.main
+  margin-right: 0
+  transition: all 0.5s
+  &.toggled
+    margin-right: 0
+#hero
+  width: 100%
+  height: 100vh
+  background-image: url('/assets/images/hero.png')
+  display: flex
+  justify-content: center
+  align-items: center
+  .hero-container
+    min-width: 300px
+    color: #000
+    z-index: 2
+    font-weight: 500
+    h1
+      font-size: 64px
+      padding-bottom: 5px
+    p
+      font-size: 24px
+      span
+        padding-bottom: 2px
+        border-bottom: 2px solid #149ddd
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 1
+    background: #55535325
+    height: 100vh
+.header-toggle
+    position: fixed
+    top: 10px
+    left: 20px
+    color: #fff
+    z-index: 9999
+    font-size: 20px
+    cursor: pointer
+    transition: all 0.5s
+    background: #555353
+    padding: 5px
+    border-radius: 50px
+    width: 35px
+    height: 35px
+    padding-top: 7px
+    text-align: center
+    box-shadow: 0 0 5px 0 #000
+.section-title
+  padding: 10px 0
+  h2
+    font-size: 40px
+    font-weight: 600
+  p
+    font-size: 15px
+.skill-list
+  .skill-progress
+    flex: 0 0 30%
+
+
+#about
+  min-height: 100vh
+  border-top: 1px dashed gray
+  ul
+    padding-right: 0
+    li
+      margin-bottom: 8px
+    i
+      color: #149ddd
+      padding-left: 5px
+#educational
+  border-top: 1px dashed gray
+  min-height: 100vh
+.timeline
+  list-style: none
+  padding-right: 0
+  position: relative
+  .timeline-label span
+    position: relative
+    font-size: 12px
+    padding: 3px
+
+    border-radius: 4px
+    z-index: 2
+  li
+    &:not(:last-child)
+      margin-bottom: 10px
+    i
+      color: #fff
+      padding: 5px
+      border-radius: 50px
+      font-size: 12px
+      position: absolute
+      z-index: 2
+      right: -2px
+    .timeline-item
+      margin-right: 30px
+      padding: 8px
+      border-radius: 7px
+      box-shadow: 0 0 3px 0px #000
+      .timeline-header
+        font-size: 14px
+        display: flex
+        align-items: center
+        padding-bottom: 3px
+        justify-content: space-between
+        .time
+          font-size: 12px
+    .timeline-body
+      padding: 4px
+      font-size: 15px
+  &::before
+    z-index: 1
+    content: ''
+    position: absolute
+    top: 0
+    right: 6px
+    width: 4px
+    height: 100%
+    background: gray
+#skills
+  border-top: 1px dashed gray
+  min-height: 100vh
+#contact
+  border-top: 1px dashed gray
+  min-height: 100vh
+#footer
+  padding-top: 10px
+  background-color: #040b14
+  color: #fff
+  .social-links
+    text-align: center
+    a
+      @extend %social-link
+  ul
+    margin-top: 5px
+    padding-right: 0
+    font-size: 13px
+    li
+      margin: 0 5px
+  .copyright
+    font-size: 12px
+@media screen and ( min-width: 1024px )
+  .main
+    margin-right: 300px
+  .header-toggle
+    display: none
+@media screen and ( min-width: 768px )
+  #hero
+    background-attachment: fixed
+#pageloading
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  display: block
+  background: #fff
+  opacity: 0.9
+  z-index: 9998
+  text-align: center
+  div
+    z-index: 9999
+    position: absolute
+    top: 50%
+    left: 50%

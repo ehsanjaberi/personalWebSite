@@ -1,0 +1,208 @@
+<div *ngIf="!user" id="pageloading">
+  <div class="spinner-grow"></div>
+</div>
+<span class="fas fa-bars header-toggle" [class]="class" (click)="sidebarToggle()"></span>
+<client-header [class]="class" [imgUrl]="user.img_url"></client-header>
+<!-- <client-header [class]="class" [imgUrl]="user ? user.img_url:''"></client-header> -->
+<section id="hero">
+  <div class="hero-container" data-aos="fade-in">
+    <h1>{{ user.name + ' ' + user.family }}</h1>
+
+    <p>من یک <span class="herotype"></span> هستم</p>
+  </div>
+</section>
+
+<div [class]="class" class="main bg-light">
+  <section id="about" class="about mb-3 child">
+    <div class="container">
+      <div class="section-title">
+        <h2>درباره من</h2>
+        <p>
+         {{ user.description }}
+        </p>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-12 col-md-6 col-lg-5 text-center">
+          <img [src]="user.img_url" width="" alt="" class="border border-secondary border-5 w-100">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-7 pt-lg-0 pt-4">
+          <h3>توسعه دهنده وب</h3>
+          <div class="row pt-3">
+            <div class="col-lg-6">
+              <ul class="list-unstyled">
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>تاریخ تولد: </strong>{{ user.birthday }}
+                </li>
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>وبسایت: </strong>{{ user.website }}
+                </li>
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>شماره همراه: </strong>{{  user.phonenumber }}
+                </li>
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>شهر: </strong>{{  user.city }}
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list-unstyled">
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>سن: </strong>{{  user.age }}
+                </li>
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>مدرک تحصیلی: </strong>{{  user.degree }}
+                </li>
+                <li>
+                  <i class="fas fa-chevron-left"></i> <strong>ایمیل: </strong>{{  user.email }}
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <!-- <p>originally from the United States and I currently live in Germany. I have been a teacher since 2008, and specialize in business writing and IELTS preparation. Before becoming a teacher, I worked as a copyeditor for government agencies in Washington DC and as a ghostwriter for startup founders and independent consultants around the world. In my free time, I enjoy hiking, practicing photography, and exploring the city by bike.</p> -->
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section id="educational" class="educational mb-3 child">
+    <div class="container">
+      <div class="section-title">
+        <h2>سوابق تحصیلی</h2>
+        <p>شما میتوانید سوابق تحصیلی من را مشاهده کنید.</p>
+      </div>
+      <div class="row m-4">
+        <ul class="timeline">
+          <ng-container *ngFor="let groupYear of educational">
+            <li class="timeline-label">
+              <span class="bg-success text-white">{{ groupYear.year }}</span>
+            </li>
+          <ng-container *ngFor="let edu of groupYear.groupItem">
+            <li>
+              <i class="fas fa-envelope bg-primary"></i>
+              <div class="timeline-item bg-white">
+                <div class="timeline-header border-bottom">
+                  <span>{{ edu.title }}</span>
+                  <span class="time">به مدت {{ edu.period }}</span>
+                </div>
+                <div class="timeline-body">{{ edu.text }}</div>
+                <div class="timeline-footer"></div>
+              </div>
+            </li>
+          </ng-container>
+          </ng-container>
+
+
+          <!-- <li class="timeline-label">
+            <span class="bg-success text-white">سال1394</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope bg-primary"></i>
+            <div class="timeline-item bg-white">
+              <div class="timeline-header border-bottom">
+                <span>دانشکده فنی شهید محمد منتظری</span>
+                <span class="time">بهمن 94</span>
+              </div>
+              <div class="timeline-body">قبولی در رشته نرم افزار کامپیوتر مقطع کاردنی این دانشکده</div>
+              <div class="timeline-footer"></div>
+            </div>
+          </li>
+          <li class="timeline-label">
+            <span class="bg-success text-white">سال 1397</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope bg-primary"></i>
+            <div class="timeline-item bg-white">
+              <div class="timeline-header border-bottom">
+                <span>دانشکده فنی شهید محمد منتظری</span>
+                <span class="time">مهر 97</span>
+              </div>
+              <div class="timeline-body">قبولی در رشته مهندسی تکنولوژی نرم افزار کامپیوتر در مقطع کارشناسی این دانشکده
+              </div>
+              <div class="timeline-footer"></div>
+            </div>
+          </li>
+          <li class="timeline-label">
+            <span class="spinner-border spinner-border-sm text-success rounded-circle"></span>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="skills mb-3 child">
+    <div class="container">
+      <div class="section-title">
+        <h2>مهارت های من</h2>
+        <p>شما در اینجا میتوانید مهارت های من را مشاهده کنید</p>
+      </div>
+      <div class="skill-list d-flex flex-column flex-sm-row flex-wrap">
+        <div class="skill-progress mb-3 mb-sm-5 mx-1" *ngFor="let skill of skills">
+          <span class="">{{ skill.name }}</span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+              [style.width]="skill.percent + '%'" [attr.aria-valuenow]="skill.percent" aria-valuemin="0" aria-valuemax="100">{{ skill.percent +'%' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact mb-3 child">
+    <div class="container">
+      <div class="section-title">
+        <h2>ارتباط با من</h2>
+        <p>منتظر نظرات شما هستم</p>
+      </div>
+      <form action="" [formGroup]="form" (ngSubmit)="onSubmitForm()" >
+        <div class="row px-lg-5 mx-lg-4">
+          <div class="col-lg-6 col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label">نام</label>
+              <input type="text" class="form-control" [class]="submitted && f.name.errors ? 'is-invalid':''" formControlName="name">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 ">
+            <div class="mb-3">
+              <label for="" class="form-label">ایمیل</label>
+              <input type="text" class="form-control" [class]="submitted && f.email.errors ? 'is-invalid':''" formControlName="email">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="mb-3">
+              <label for="" class="form-label">موضوع</label>
+              <input type="text" class="form-control" [class]="submitted && f.subject.errors ? 'is-invalid':''" formControlName="subject">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="mb-3">
+              <label for="" class="form-label">متن پیام</label>
+              <textarea name="" class="form-control" id="" cols="30" rows="8" [class]="submitted && f.text.errors ? 'is-invalid':''" formControlName="text"></textarea>
+            </div>
+
+          </div>
+          <div class="d-flex justify-content-end align-items-center">
+            <div *ngIf="loading" class="spinner-border spinner-border-sm ms-1"></div>
+            <button [disabled]="loading" class="btn btn-primary" type="submit">ارسال</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </section>
+  <section id="footer" class="footer">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+      <div class="social-links mb-3">
+        <a href="https://t.me/E_Jaberi1997" class="telegram"><span class="fab fa-telegram"></span></a>
+        <a href="https://github.com/ehsanjaberi" class="github"><span class="fab fa-github"></span></a>
+        <a href="https://wa.me/qr/YA2KHMM6LN4AO1" class="whatsapp"><span class="fab fa-whatsapp"></span></a>
+      </div>
+      <!-- <ul class="list-unstyled d-flex quickaccess">
+        <li> کمک رسانی</li>
+        <li>|</li>
+        <li> آموزش</li>
+        <li>|</li>
+        <li> آزمون</li>
+      </ul> -->
+      <p class="copyright">تمامی حقوق مادی و معنوی این سایت متعلق به احسان جابری می‌باشد.</p>
+    </div>
+  </section>
+</div>
