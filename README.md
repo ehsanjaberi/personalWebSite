@@ -1,5 +1,5 @@
 # PersonalWebSite
-* این وب سایت به زودی بر روی هاست قرار می گیرد*
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
 ## Development server
